@@ -1,5 +1,4 @@
 import { Contact } from "@/components/sections/Contact";
-import { Education } from "@/components/sections/Education";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Life } from "@/components/sections/Life";
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <main id="content">
       <Hero />
-      <Education />
       <Experience />
       <Research />
       <Projects />

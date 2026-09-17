@@ -103,6 +103,8 @@
     color-scheme: dark;
     background-color: var(--background);
     scroll-behavior: smooth;
+    scroll-padding-top: var(--navbar-offset);
+    scroll-snap-type: y proximity;
   }
 
   body {
@@ -170,6 +172,7 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+    scroll-snap-type: none;
   }
 
   *,

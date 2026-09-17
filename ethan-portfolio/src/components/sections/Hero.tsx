@@ -26,7 +26,7 @@ export function Hero() {
     <section
       id="me"
       aria-label="Introduction"
-      className="relative flex min-h-svh flex-col overflow-hidden"
+      className="relative flex min-h-svh snap-start snap-always flex-col overflow-hidden"
     >
       <div
         aria-hidden="true"
@@ -90,9 +90,9 @@ export function Hero() {
       </div>
 
       <a
-        href="#education"
+        href="#experience"
         className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3 text-muted transition-colors duration-200 hover:text-foreground"
-        aria-label="Scroll to education"
+        aria-label="Scroll to experience"
       >
         <span className="text-[0.62rem] uppercase tracking-[0.32em]">
           Scroll

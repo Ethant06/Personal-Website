@@ -5,7 +5,6 @@ import { useEffect, useId, useRef, useState } from "react";
 
 const NAV_LINKS = [
   { href: "#me", label: "Me" },
-  { href: "#education", label: "Education" },
   { href: "#experience", label: "Experience" },
   { href: "#research", label: "Research" },
   { href: "#projects", label: "Projects" },
@@ -13,21 +12,52 @@ const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ] as const;
 
+const SECTION_IDS = NAV_LINKS.map((link) => link.href.slice(1));
+
+function navLinkClassName(isActive: boolean, compact = false) {
+  const base = compact
+    ? "block py-3 text-base transition-[color,text-decoration-color] duration-200"
+    : "pointer-events-auto text-sm tracking-wide transition-[color,text-decoration-color] duration-200";
+
+  if (isActive) {
+    return `${base} text-foreground underline decoration-accent decoration-1 underline-offset-[0.65rem]`;
+  }
+
+  return `${base} text-muted hover:text-foreground`;
+}
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [activeId, setActiveId] = useState<(typeof SECTION_IDS)[number]>("me");
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuId = useId();
   const isSolid = scrolled || menuOpen;
 
   useEffect(() => {
-    const onScroll = () => {
+    const update = () => {
       setScrolled(window.scrollY > 16);
+
+      const marker = Math.min(window.innerHeight * 0.3, 160);
+      let current: (typeof SECTION_IDS)[number] = SECTION_IDS[0];
+
+      for (const id of SECTION_IDS) {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= marker) {
+          current = id;
+        }
+      }
+
+      setActiveId(current);
     };
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("hashchange", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("hashchange", update);
+    };
   }, []);
 
   useEffect(() => {
@@ -83,16 +113,21 @@ export function Navbar() {
         className="relative flex h-nav w-full items-center justify-end px-page-x"
       >
         <ul className="pointer-events-none absolute inset-0 hidden items-center justify-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="pointer-events-auto text-sm tracking-wide text-muted transition-colors duration-200 hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = activeId === link.href.slice(1);
+
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={navLinkClassName(isActive)}
+                  aria-current={isActive ? "location" : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
         <button
           ref={menuButtonRef}
@@ -113,17 +148,22 @@ export function Navbar() {
       {menuOpen ? (
         <div id={menuId} className="border-t border-border md:hidden">
           <ul className="mx-auto flex max-w-content flex-col gap-1 px-page-x py-4">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="block py-3 text-base text-muted transition-colors duration-200 hover:text-foreground"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = activeId === link.href.slice(1);
+
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={navLinkClassName(isActive, true)}
+                    aria-current={isActive ? "location" : undefined}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       ) : null}
