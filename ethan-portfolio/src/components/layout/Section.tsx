@@ -7,9 +7,9 @@ export function Section({ id, children }: SectionProps) {
   return (
     <section
       {...(id ? { id } : {})}
-      className="flex min-h-[70vh] scroll-mt-24 flex-col justify-center px-6 py-24 sm:px-10 sm:py-32"
+      className="scroll-mt-nav px-page-x py-section-y"
     >
-      <div className="mx-auto w-full max-w-5xl">{children}</div>
+      <div className="mx-auto w-full max-w-content">{children}</div>
     </section>
   );
 }

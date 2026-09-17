@@ -8,7 +8,7 @@ import { Research } from "@/components/sections/Research";
 
 export default function Home() {
   return (
-    <main>
+    <main id="content">
       <Hero />
       <Education />
       <Experience />
