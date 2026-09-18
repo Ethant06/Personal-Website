@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 
 const CONTACTS = [
   {
@@ -48,6 +49,9 @@ export function Hero() {
               <span className="mt-2 block text-sm tracking-wide">
                 Applied Mathematics minor
               </span>
+              <span className="mt-2 block text-sm tracking-wide">
+                Data Science minor
+              </span>
             </p>
 
             <ul className="mt-8 flex items-center gap-5 sm:mt-10">
@@ -69,40 +73,38 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto mb-20 aspect-[3/4] w-full max-w-[16rem] md:col-span-6 md:mb-0 md:ml-8 md:aspect-auto md:h-[min(68vh,34rem)] md:w-full md:max-w-[26rem] md:justify-self-start lg:ml-12">
-          <Image
-            src="/portrait.jpg"
-            alt="Portrait of Ethan Tandio standing by the water at night"
-            fill
-            priority
-            sizes="(min-width: 768px) 380px, 220px"
-            className="object-cover object-[center_18%]"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent md:hidden"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 hidden bg-gradient-to-l from-transparent via-background/10 to-background md:block"
-          />
+        <div className="relative mx-auto mb-20 aspect-[3/4] w-full max-w-[14rem] shadow-photo md:col-span-6 md:mb-0 md:ml-8 md:aspect-auto md:h-[min(56vh,28rem)] md:w-full md:max-w-[22rem] md:justify-self-start lg:ml-12">
+          <div className="group absolute inset-0 overflow-hidden">
+            <Image
+              src="/portrait.jpg"
+              alt="Portrait of Ethan Tandio standing by the water at night"
+              fill
+              priority
+              sizes="(min-width: 768px) 280px, 180px"
+              className="object-cover object-[center_62%] transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent md:hidden"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 hidden bg-gradient-to-l from-transparent via-background/10 to-background md:block"
+            />
+          </div>
         </div>
       </div>
 
       <a
         href="#experience"
-        className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3 text-muted transition-colors duration-200 hover:text-foreground"
+        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-muted transition-colors duration-200 hover:text-foreground"
         aria-label="Scroll to experience"
       >
-        <span className="text-[0.62rem] uppercase tracking-[0.32em]">
-          Scroll
-        </span>
-        <span
+        <ChevronDown
           aria-hidden="true"
-          className="relative block h-11 w-px bg-border"
-        >
-          <span className="absolute left-1/2 top-0 h-2 w-px -translate-x-1/2 bg-accent animate-scroll-hint" />
-        </span>
+          className="size-8 animate-scroll-hint"
+          strokeWidth={1.5}
+        />
       </a>
     </section>
   );

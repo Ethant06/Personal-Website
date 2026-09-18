@@ -33,6 +33,9 @@
   --radius-md: 0.25rem;
   --default-border-color: var(--color-border);
   --animate-scroll-hint: scroll-hint 2.4s ease-in-out infinite;
+  --shadow-photo:
+    0 10px 28px rgb(7 11 18 / 0.28),
+    0 2px 14px rgb(126 191 208 / 0.1);
 }
 
 @keyframes scroll-hint {

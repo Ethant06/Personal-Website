@@ -60,6 +60,7 @@ export const portfolio = {
         "A full-stack research assistant for saving documents, asking questions over personal knowledge, and interacting with webpages through a Chrome extension.",
 
       technologies: [
+        "Python",
         "Next.js",
         "React",
         "TypeScript",
@@ -68,11 +69,13 @@ export const portfolio = {
         "pgvector",
         "OpenAI",
         "Chrome Extension",
+        "Tailwind CSS"
       ],
 
-      github: "",
-      demo: "",
-      image: "/images/knowledge-base.png",
+      github: "https://github.com/Ethant06/AI-Assistant-Chrome-Extension",
+      image: "/pagepilot-library-cover.png",
+      imageWidth: 1440,
+      imageHeight: 810,
 
       featured: true,
     },
@@ -83,39 +86,75 @@ export const portfolio = {
       year: "2025",
 
       description:
-        "CNN-based image classification experiments investigating limited-data biomedical datasets.",
-
-      highlights: [],
+        "CNN-based image classification experiments investigating limited-data biomedical datasets with different augmentation techniques.",
 
       technologies: [
         "Python",
         "PyTorch",
-        "Machine Learning",
+        "torchvision",
+        "numpy",
+        "scikit-learn",
+        "matplotlib"
       ],
 
-      github: "",
-      demo: "",
-      image: "/images/cnn-project.png",
+      github: "https://github.com/Ethant06/Cell-Classification",
+      image: "/research.jpg",
+      imageWidth: 1280,
+      imageHeight: 1024,
 
       featured: false,
     },
   ],
 
-  life: [
-    {
-      id: "swimming",
-      title: "Swimming",
-      description:
-        "Time away from the keyboard usually means getting in the water.",
-      image: "/images/swimming.jpg",
-    },
+  life: {
+    collections: [
+      {
+        id: "photography",
+        title: "Photography",
+        featured: true,
+        description:
+          "I like to travel around the Pacific Northwest to take pictures and enjoy Washington's landscapes",
+        photos: [
+          {
+            src: "/photography.jpeg",
+            width: 4284,
+            height: 5712,
+            alt: "Ethan photographing a grassy field under a blue sky",
+          },
+        ],
+      },
 
-    {
-      id: "hackathons",
-      title: "Hackathons",
-      description:
-        "Building, experimenting, and meeting other people who love creating things.",
-      image: "/images/hackathon.jpg",
-    },
-  ],
+      {
+        id: "swimming",
+        title: "Swimming",
+        featured: false,
+        description:
+          "I grew up swimming competitively throughout middle school and highschool for the love of the game. I ended my journey by making Washington State Championship Finals in the 100 fly.",
+        photos: [
+          {
+            src: "/swimming.jpg",
+            width: 1536,
+            height: 1024,
+            alt: "Ethan swimming butterfly in a competitive pool",
+          },
+        ],
+      },
+
+      {
+        id: "hiking",
+        title: "Hiking",
+        featured: false,
+        description:
+          "I like hiking around the mountains and lakes of the Pacific Northwest whenever I can get outside.",
+        photos: [
+          {
+            src: "/hiking.jpeg",
+            width: 4032,
+            height: 3024,
+            alt: "Ethan at an alpine lake in the Pacific Northwest",
+          },
+        ],
+      },
+    ],
+  },
 } as const

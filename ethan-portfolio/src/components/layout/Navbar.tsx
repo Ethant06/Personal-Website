@@ -4,12 +4,10 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 
 const NAV_LINKS = [
-  { href: "#me", label: "Me" },
+  { href: "#me", label: "Hello" },
   { href: "#experience", label: "Experience" },
-  { href: "#research", label: "Research" },
   { href: "#projects", label: "Projects" },
-  { href: "#life", label: "Life" },
-  { href: "#contact", label: "Contact" },
+  { href: "#life", label: "Outside of School" },
 ] as const;
 
 const SECTION_IDS = NAV_LINKS.map((link) => link.href.slice(1));
@@ -110,8 +108,15 @@ export function Navbar() {
       </a>
       <nav
         aria-label="Primary"
-        className="relative flex h-nav w-full items-center justify-end px-page-x"
+        className="relative flex h-nav w-full items-center justify-between px-page-x"
       >
+        <a
+          href="#me"
+          className="relative z-10 text-sm font-medium tracking-[0.16em] text-foreground"
+          onClick={() => setMenuOpen(false)}
+        >
+          Ethan Tandio
+        </a>
         <ul className="pointer-events-none absolute inset-0 hidden items-center justify-center gap-8 md:flex">
           {NAV_LINKS.map((link) => {
             const isActive = activeId === link.href.slice(1);
