@@ -129,7 +129,7 @@ export const portfolio = {
         title: "Swimming",
         featured: false,
         description:
-          "I grew up swimming competitively throughout middle school and highschool for the love of the game. I ended my journey by making Washington State Championship Finals in the 100 fly.",
+          "I grew up swimming competitively throughout middle school and highschool. I ended my journey by making Washington State Championship Finals in the 100 fly.",
         photos: [
           {
             src: "/swimming.jpg",

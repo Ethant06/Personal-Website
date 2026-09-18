@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Ethan Tandio",
   description:
-    "Ethan Tandio — CS + Applied Math at the University of Washington. ",
+    "Ethan Tandio — Computer Science and Applied Math at the University of Washington. Full-stack development and machine learning research",
   applicationName: "Ethan Tandio",
   robots: {
     index: true,
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     siteName: "Ethan Tandio",
     title: "Ethan Tandio — CS @ UW Seattle",
     description:
-      "Full stack development and machine learning ",
+      "Computer Science and Applied Math at the University of Washington. Full-stack development and machine learning research.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Ethan Tandio — CS @ UW Seattle",
     description:
-      "Full stack development and machine learning",
+      "Computer Science and Applied Math at the University of Washington. Full-stack development and machine learning research.",
   },
 };
 
