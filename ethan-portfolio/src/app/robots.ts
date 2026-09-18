@@ -1,4 +1,4 @@
-const siteUrl = "https://ethan-tandio.com";
+const siteUrl = "https://ethantandio.com";
 
 export default function robots() {
   return {

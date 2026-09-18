@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://ethan-tandio.com";
+const siteUrl = "https://ethantandio.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
