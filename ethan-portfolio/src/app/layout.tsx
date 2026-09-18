@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Ethan Tandio",
   description:
-    "Ethan Tandio — Computer Science and Applied Math at the University of Washington. Full-stack development and machine learning research",
+    "Ethan Tandio — Computer Science and Applied Math at the University of Washington Seattle. Full-stack development and machine learning research",
   applicationName: "Ethan Tandio",
   robots: {
     index: true,
