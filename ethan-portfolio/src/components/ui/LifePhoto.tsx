@@ -14,8 +14,8 @@ export function LifePhoto({ photo, sizes }: LifePhotoProps) {
 
   return (
     <figure
-      className={`rounded-lg shadow-photo ${
-        portrait ? "mx-auto w-full max-w-md md:mx-0" : "w-full"
+      className={`mx-auto w-full rounded-lg shadow-photo ${
+        portrait ? "max-w-[12rem]" : "max-w-[18rem]"
       }`}
     >
       <div className="group relative overflow-hidden rounded-lg">

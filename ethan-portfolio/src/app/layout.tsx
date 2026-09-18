@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import "./globals.css";
 
@@ -13,10 +14,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://ethan-tandio.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Ethan Tandio",
   description:
-    "Personal portfolio of Ethan Tandio, a student, and developer.",
+    "Ethan Tandio — CS + Applied Math at the University of Washington. ",
+  applicationName: "Ethan Tandio",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Ethan Tandio",
+    title: "Ethan Tandio — CS @ UW Seattle",
+    description:
+      "Full stack development and machine learning ",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ethan Tandio — CS @ UW Seattle",
+    description:
+      "Full stack development and machine learning",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -28,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-background font-sans text-foreground">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
