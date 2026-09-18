@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const CONTACTS = [
   {
@@ -29,7 +30,7 @@ export function Hero() {
       />
 
       <div className="relative mx-auto flex w-full max-w-content flex-1 -translate-y-8 flex-col justify-center px-page-x pt-nav md:-translate-y-12 md:grid md:grid-cols-12 md:items-center md:gap-10 lg:gap-14">
-        <div className="py-4 md:col-span-6 md:py-0">
+        <Reveal className="py-4 md:col-span-6 md:py-0">
           <h1 className="flex w-fit flex-col gap-2 text-left text-[clamp(3.5rem,11vw,7rem)] uppercase leading-none tracking-[0.08em] sm:gap-3">
             <span className="block">Ethan</span>
             <span className="block">Tandio</span>
@@ -65,9 +66,13 @@ export function Hero() {
               ))}
             </ul>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="relative mx-auto mb-20 aspect-[3/4] w-full max-w-[14rem] shadow-photo md:col-span-6 md:mb-0 md:ml-8 md:aspect-auto md:h-[min(56vh,28rem)] md:w-full md:max-w-[22rem] md:justify-self-start lg:ml-12">
+        <Reveal
+          variant="image"
+          delay={100}
+          className="relative mx-auto mb-20 aspect-[3/4] w-full max-w-[14rem] shadow-photo md:col-span-6 md:mb-0 md:ml-8 md:aspect-auto md:h-[min(56vh,28rem)] md:w-full md:max-w-[22rem] md:justify-self-start lg:ml-12"
+        >
           <div className="group absolute inset-0 overflow-hidden">
             <Image
               src="/portrait.jpg"
@@ -86,7 +91,7 @@ export function Hero() {
               className="absolute inset-0 hidden bg-gradient-to-l from-transparent via-background/10 to-background md:block"
             />
           </div>
-        </div>
+        </Reveal>
       </div>
 
       <a

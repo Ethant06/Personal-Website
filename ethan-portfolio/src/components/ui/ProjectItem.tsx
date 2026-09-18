@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { Reveal } from "@/components/ui/Reveal";
 import { portfolio } from "@/data/portfolio";
 
 type Project = (typeof portfolio.projects)[number];
@@ -17,7 +18,10 @@ export function ProjectItem({ project, reversed = false }: ProjectItemProps) {
       }`}
     >
       {project.image ? (
-        <div className="rounded-lg shadow-photo md:col-span-7">
+        <Reveal
+          variant="image"
+          className="rounded-lg shadow-photo md:col-span-7"
+        >
           <div className="group overflow-hidden rounded-lg border border-border">
             <Image
               src={project.image}
@@ -28,10 +32,11 @@ export function ProjectItem({ project, reversed = false }: ProjectItemProps) {
               className="h-auto w-full transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </div>
-        </div>
+        </Reveal>
       ) : null}
 
-      <div
+      <Reveal
+        delay={80}
         className={`min-w-0 ${project.image ? "md:col-span-5" : "md:col-span-8"}`}
       >
         <p className="text-sm tracking-[0.18em] text-muted">{project.year}</p>
@@ -62,7 +67,7 @@ export function ProjectItem({ project, reversed = false }: ProjectItemProps) {
             </li>
           ))}
         </ul>
-      </div>
+      </Reveal>
     </article>
   );
 }

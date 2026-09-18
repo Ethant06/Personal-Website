@@ -1,5 +1,6 @@
 import { Section } from "@/components/layout/Section";
 import { LifePhotoGrid } from "@/components/ui/LifePhoto";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { portfolio } from "@/data/portfolio";
 
@@ -23,13 +24,15 @@ export function Life() {
 function CollectionBlock({ collection }: { collection: LifeCollection }) {
   return (
     <article className="flex h-full flex-col rounded-lg border border-border p-5 md:p-6">
-      <h3>{collection.title}</h3>
-      {collection.description ? (
-        <p className="mt-3 flex-1 text-pretty">{collection.description}</p>
-      ) : null}
-      <div className="mt-6 flex justify-center">
+      <Reveal>
+        <h3>{collection.title}</h3>
+        {collection.description ? (
+          <p className="mt-3 text-pretty">{collection.description}</p>
+        ) : null}
+      </Reveal>
+      <Reveal variant="image" delay={100} className="mt-6 flex flex-1 justify-center">
         <LifePhotoGrid photos={collection.photos} sizes="(min-width: 768px) 288px, 288px" />
-      </div>
+      </Reveal>
     </article>
   );
 }
