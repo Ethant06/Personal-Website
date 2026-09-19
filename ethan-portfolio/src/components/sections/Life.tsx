@@ -30,8 +30,12 @@ function CollectionBlock({ collection }: { collection: LifeCollection }) {
           <p className="mt-3 text-pretty">{collection.description}</p>
         ) : null}
       </Reveal>
-      <Reveal variant="image" delay={100} className="mt-6 flex flex-1 justify-center">
-        <LifePhotoGrid photos={collection.photos} sizes="(min-width: 768px) 288px, 288px" />
+      <Reveal
+        variant="image"
+        delay={100}
+        className="mt-auto flex items-center justify-center pt-6"
+      >
+        <LifePhotoGrid photos={collection.photos} />
       </Reveal>
     </article>
   );

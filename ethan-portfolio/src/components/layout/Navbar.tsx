@@ -115,7 +115,7 @@ export function Navbar() {
           className="relative z-10 text-sm font-medium tracking-[0.16em] text-foreground"
           onClick={() => setMenuOpen(false)}
         >
-          Ethan Tandio
+          EthanTandio.com
         </a>
         <ul className="pointer-events-none absolute inset-0 hidden items-center justify-center gap-8 md:flex">
           {NAV_LINKS.map((link) => {
